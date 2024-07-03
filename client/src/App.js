@@ -77,6 +77,7 @@ function App() {
         error_msg: "",
       });
       setPrediction({});
+      setShowErrorBox(false);
     }
   }
 
@@ -141,10 +142,6 @@ function App() {
     )
       .then(doSubmitResp)
       .catch(doSubmitError);
-  }
-
-  function hideError() {
-    setShowErrorBox(false);
   }
 
   function hidePrediction() {
@@ -226,7 +223,7 @@ function App() {
           <span className="block sm:inline"> {data.error_msg}</span>
           <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
             <svg
-              onClick={hideError}
+              onClick={() => setShowErrorBox(false)}
               className="fill-current h-6 w-6 text-red-500"
               role="button"
               xmlns="http://www.w3.org/2000/svg"
