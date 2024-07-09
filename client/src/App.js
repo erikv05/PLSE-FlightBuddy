@@ -154,42 +154,42 @@ function App() {
   function getBoxColor(num) {
     switch (num) {
       default:
-        return 'bg-green-300'
+        return "bg-green-300";
       case 1:
       case 2:
-        return 'bg-yellow-200'
+        return "bg-yellow-200";
       case 3:
-        return 'bg-orange-200'
+        return "bg-orange-200";
       case 4:
-        return 'bg-red-300'
+        return "bg-red-300";
     }
   }
 
   function getTextColor(num) {
     switch (num) {
       default:
-        return 'text-green-600'
-      case 1: 
+        return "text-green-600";
+      case 1:
       case 2:
-        return 'text-yellow-500'
+        return "text-yellow-500";
       case 3:
-        return 'text-orange-500'
+        return "text-orange-500";
       case 4:
-        return 'text-red-600'
+        return "text-red-600";
     }
   }
 
   function getCloseColor(num) {
     switch (num) {
       default:
-        return 'text-green-500'
+        return "text-green-500";
       case 1:
       case 2:
-        return 'text-yellow-400'
+        return "text-yellow-400";
       case 3:
-        return 'text-orange-400'
+        return "text-orange-400";
       case 4:
-        return 'text-red-500'
+        return "text-red-500";
     }
   }
 
@@ -291,13 +291,23 @@ function App() {
         </button>
       </form>
       {prediction.showBox ? (
-        <div className={`absolute pl-5 ${getBoxColor(prediction.predictionNumber)} bg-opacity-100 w-96 rounded-md h-20 flex justify-between items-center`}>
-          <p className={`font-medium ${getTextColor(prediction.predictionNumber)}`}>
+        <div
+          className={`absolute pl-5 ${getBoxColor(
+            prediction.predictionNumber
+          )} bg-opacity-100 w-96 rounded-md h-20 flex justify-between items-center`}
+        >
+          <p
+            className={`font-medium ${getTextColor(
+              prediction.predictionNumber
+            )}`}
+          >
             {handlePredictionText(prediction.predictionNumber)}
           </p>
           <svg
             onClick={hidePrediction}
-            className={`fill-current h-6 w-6 ${getCloseColor(prediction.predictionNumber)} mx-5`}
+            className={`fill-current h-6 w-6 ${getCloseColor(
+              prediction.predictionNumber
+            )} mx-5`}
             role="button"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
