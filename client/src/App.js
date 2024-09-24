@@ -140,7 +140,33 @@ function App() {
     fetch(
       `http://localhost:8088/predict?number=${input.number}&carrier=${input.code}&date=${input.date}`
     )
-      .then(doSubmitResp)
+      .then((res) => {
+        //doSubmitResp(resp)
+        if (res.status !== 200) {
+          doSubmitError(`bad status code ${res.status}`);
+          return;
+        }
+        res
+          .json()
+          .then(json => {
+            // need to transform json here (add 1 to the prediction)
+            if (json["error_msg"] !== undefined) {
+              setData({
+                prediction: "",
+                error_msg: json["error_msg"],
+              });
+              setShowErrorBox(true);
+            } else {
+              setData({
+                prediction: json["prediction"],
+                error_msg: "",
+              });
+              setPrediction({});
+              setShowErrorBox(false);
+            }
+          })
+          .catch(() => doSubmitError("200 response not JSON"));
+      })
       .catch(doSubmitError);
   }
 
