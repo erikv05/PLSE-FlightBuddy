@@ -94,6 +94,10 @@ function App() {
     });
   }
 
+  function hammingSqrtDifference(x) {
+    return Math.sqrt(x + 1) - Math.sqrt(x);
+  }
+
   function validDate(date) {
     // Valid format: YYYY-MM-DD
     if (date.length !== 10) {
