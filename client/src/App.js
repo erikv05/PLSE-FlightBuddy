@@ -145,7 +145,6 @@ function App() {
       `http://localhost:8088/predict?number=${input.number}&carrier=${input.code}&date=${input.date}`
     )
       .then((res) => {
-        //doSubmitResp(resp)
         if (res.status !== 200) {
           doSubmitError(`bad status code ${res.status}`);
           return;
